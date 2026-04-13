@@ -136,6 +136,10 @@
     "17760446619eebaf2a": {
       "type": "_blocks",
       "settings": {}
+    },
+    "177608129521ef1250": {
+      "type": "_blocks",
+      "settings": {}
     }
   },
   "order": [
@@ -143,6 +147,7 @@
     "rich_text",
     "featured_collection",
     "multicolumn",
-    "17760446619eebaf2a"
+    "17760446619eebaf2a",
+    "177608129521ef1250"
   ]
 }
