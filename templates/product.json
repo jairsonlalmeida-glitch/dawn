@@ -12,6 +12,13 @@
     "main": {
       "type": "main-product",
       "blocks": {
+        "custom_liquid_R367Re": {
+          "type": "custom_liquid",
+          "name": "Description",
+          "settings": {
+            "custom_liquid": "{% if product.metafields.custom.short_description.value %}\n  {{ product.metafields.custom.short_description.value }}\n{% endif %}"
+          }
+        },
         "vendor": {
           "type": "text",
           "settings": {
@@ -51,74 +58,17 @@
             "show_dynamic_checkout": true,
             "show_gift_card_recipient": true
           }
-        },
-        "description_nfmpgx": {
-          "type": "description",
-          "settings": {}
-        },
-        "text_g6h3BC": {
-          "type": "text",
-          "settings": {
-            "text": "Text block",
-            "text_style": "body"
-          }
-        },
-        "text_XRpw4c": {
-          "type": "text",
-          "settings": {
-            "text": "Text block",
-            "text_style": "body"
-          }
-        },
-        "collapsible-row-1": {
-          "type": "collapsible_tab",
-          "settings": {
-            "heading": "Shipping & Returns",
-            "icon": "truck",
-            "content": "",
-            "page": ""
-          }
-        },
-        "collapsible-row-2": {
-          "type": "collapsible_tab",
-          "settings": {
-            "heading": "Dimensions",
-            "icon": "ruler",
-            "content": "",
-            "page": ""
-          }
-        },
-        "collapsible-row-3": {
-          "type": "collapsible_tab",
-          "settings": {
-            "heading": "Care Instructions",
-            "icon": "heart",
-            "content": "",
-            "page": ""
-          }
-        },
-        "share": {
-          "type": "share",
-          "settings": {
-            "share_label": "Share"
-          }
         }
       },
       "block_order": [
+        "custom_liquid_R367Re",
         "vendor",
         "title",
         "caption",
         "price",
         "variant_picker",
         "quantity_selector",
-        "buy_buttons",
-        "description_nfmpgx",
-        "text_g6h3BC",
-        "text_XRpw4c",
-        "collapsible-row-1",
-        "collapsible-row-2",
-        "collapsible-row-3",
-        "share"
+        "buy_buttons"
       ],
       "settings": {
         "enable_sticky_info": true,
