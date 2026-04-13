@@ -53,10 +53,16 @@
         "padding_top": 20,
         "padding_bottom": 20
       }
+    },
+    "custom_liquid_6QAQGV": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {}
     }
   },
   "order": [
     "announcement-bar",
-    "header"
+    "header",
+    "custom_liquid_6QAQGV"
   ]
 }
