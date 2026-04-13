@@ -87,6 +87,42 @@
     "177608129521ef1250": {
       "type": "_blocks",
       "settings": {}
+    },
+    "1776122545f0ffb0e0": {
+      "type": "_blocks",
+      "settings": {}
+    },
+    "1776122668ebb2d10d": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_11787e5_K74RxM": {
+          "type": "ai_gen_block_11787e5",
+          "settings": {
+            "autoplay": true,
+            "autoplay_speed": 3500,
+            "transition_speed": 700,
+            "aspect_ratio": "4 / 3",
+            "background_color": "#ffffff",
+            "show_arrows": true,
+            "arrow_size": 55,
+            "arrow_offset": 35,
+            "arrow_opacity": 0.8,
+            "arrow_background": "#ffffff",
+            "arrow_color": "#121212",
+            "show_dots": true,
+            "dot_size": 12,
+            "dots_spacing": 8,
+            "dots_offset": 20,
+            "dot_active_color": "#121212",
+            "dot_inactive_color": "#d1d1d1"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_11787e5_K74RxM"
+      ],
+      "settings": {}
     }
   },
   "order": [
@@ -94,6 +130,8 @@
     "rich_text",
     "featured_collection",
     "17760446619eebaf2a",
-    "177608129521ef1250"
+    "177608129521ef1250",
+    "1776122545f0ffb0e0",
+    "1776122668ebb2d10d"
   ]
 }
