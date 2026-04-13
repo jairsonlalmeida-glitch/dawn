@@ -76,8 +76,71 @@
   <div class="page-width">
     <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
       <div class="grid__item product__media-wrapper">
-        {% render 'product-media-gallery', variant_images: variant_images %}
+  <product-carousel-{{ section.id | replace: '_', '' | downcase }}
+    class="ai-product-carousel-{{ section.id }}"
+    data-autoplay="{{ section.settings.carousel_autoplay }}"
+    data-autoplay-speed="{{ section.settings.carousel_autoplay_speed }}"
+  >
+    {% assign image_media = product.media | where: 'media_type', 'image' %}
+
+    {% if image_media.size > 0 %}
+      <div class="ai-product-carousel__viewport-{{ section.id }}">
+        <div class="ai-product-carousel__track-{{ section.id }}">
+          {% for media in image_media %}
+            <div class="ai-product-carousel__slide-{{ section.id }}">
+              <img
+                src="{{ media | image_url: width: 2000 }}"
+                alt="{{ media.alt | escape }}"
+                loading="lazy"
+                width="{{ media.width }}"
+                height="{{ media.height }}"
+              >
+            </div>
+          {% endfor %}
+        </div>
       </div>
+
+      {% if section.settings.carousel_show_arrows %}
+        <button
+          class="ai-product-carousel__nav-{{ section.id }} ai-product-carousel__nav--prev-{{ section.id }}"
+          aria-label="Previous slide"
+          type="button"
+        >
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+
+        <button
+          class="ai-product-carousel__nav-{{ section.id }} ai-product-carousel__nav--next-{{ section.id }}"
+          aria-label="Next slide"
+          type="button"
+        >
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      {% endif %}
+
+      {% if section.settings.carousel_show_dots %}
+        <div class="ai-product-carousel__dots-{{ section.id }}">
+          {% for media in image_media %}
+            <button
+              class="ai-product-carousel__dot-{{ section.id }} {% if forloop.first %}active{% endif %}"
+              aria-label="Go to slide {{ forloop.index }}"
+              data-index="{{ forloop.index0 }}"
+              type="button"
+            ></button>
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% else %}
+      <div class="ai-product-carousel__empty-{{ section.id }}">
+        {{ 'product-1' | placeholder_svg_tag }}
+      </div>
+    {% endif %}
+  </product-carousel-{{ section.id | replace: '_', '' | downcase }}>
+</div>
       <div class="product__info-wrapper grid__item{% if settings.page_width > 1400 and section.settings.media_size == "small" %} product__info-wrapper--extra-padding{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
         <section
           id="ProductInfo-{{ section.id }}"
