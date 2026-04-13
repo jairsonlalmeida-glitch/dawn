@@ -9,6 +9,19 @@
  */
 {
   "sections": {
+    "custom_liquid_gUyLGG": {
+      "type": "custom-liquid",
+      "name": "Home Hero",
+      "settings": {
+        "video_url": "https://cdn.shopify.com/videos/c/o/v/4e5c8d86430b4c0d83f69fccc81dc9f0.mp4",
+        "heading": "Own the Summer",
+        "subheading": "Premium swimwear inspired by Cabo Verde confidence.",
+        "cta_primary_label": "Shop New Drop",
+        "cta_primary_url": "",
+        "cta_secondary_label": "Explore Best Sellers",
+        "cta_secondary_url": ""
+      }
+    },
     "rich_text": {
       "type": "rich-text",
       "blocks": {
@@ -122,6 +135,7 @@
     }
   },
   "order": [
+    "custom_liquid_gUyLGG",
     "rich_text",
     "featured_collection",
     "multicolumn"

@@ -53,25 +53,10 @@
         "padding_top": 20,
         "padding_bottom": 20
       }
-    },
-    "custom_liquid_6QAQGV": {
-      "type": "custom-liquid",
-      "custom_css": [],
-      "name": "t:sections.custom-liquid.presets.name",
-      "settings": {
-        "video_url": "https://cdn.shopify.com/videos/c/o/v/4e5c8d86430b4c0d83f69fccc81dc9f0.mp4",
-        "heading": "Own the Summer",
-        "subheading": "Premium swimwear inspired by Cabo Verde confidence.",
-        "cta_primary_label": "Shop New Drop",
-        "cta_primary_url": "",
-        "cta_secondary_label": "Explore Best Sellers",
-        "cta_secondary_url": ""
-      }
     }
   },
   "order": [
     "announcement-bar",
-    "header",
-    "custom_liquid_6QAQGV"
+    "header"
   ]
 }
