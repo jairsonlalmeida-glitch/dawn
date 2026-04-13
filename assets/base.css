@@ -3684,11 +3684,12 @@ details-disclosure > details {
 
 #shopify-section-template--28337723867520__featured_collection .collection__title.title-wrapper {
   text-align: left !important;
-  justify-content: flex-start !important;
+  padding-left: 0 !important;
 }
 
 #shopify-section-template--28337723867520__featured_collection .title.inline-richtext {
   text-align: left !important;
 }
+
 
  
