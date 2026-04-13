@@ -12,13 +12,6 @@
     "main": {
       "type": "main-product",
       "blocks": {
-        "custom_liquid_R367Re": {
-          "type": "custom_liquid",
-          "name": "Description",
-          "settings": {
-            "custom_liquid": "{% if product.metafields.custom.short_description.value %}\n  {{ product.metafields.custom.short_description.value }}\n{% endif %}"
-          }
-        },
         "vendor": {
           "type": "text",
           "settings": {
@@ -58,17 +51,24 @@
             "show_dynamic_checkout": true,
             "show_gift_card_recipient": true
           }
+        },
+        "custom_liquid_R367Re": {
+          "type": "custom_liquid",
+          "name": "Description",
+          "settings": {
+            "custom_liquid": "{% if product.metafields.custom.short_description.value %}\n  {% assign description = product.metafields.custom.short_description.value %}\n  {% assign lines = description | split: '\\n' %}\n  <ul>\n    {% for line in lines %}\n      {% if line != blank %}\n        <li>{{ line | strip }}</li>\n      {% endif %}\n    {% endfor %}\n  </ul>\n{% endif %}"
+          }
         }
       },
       "block_order": [
-        "custom_liquid_R367Re",
         "vendor",
         "title",
         "caption",
         "price",
         "variant_picker",
         "quantity_selector",
-        "buy_buttons"
+        "buy_buttons",
+        "custom_liquid_R367Re"
       ],
       "settings": {
         "enable_sticky_info": true,
