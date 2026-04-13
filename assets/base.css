@@ -3663,9 +3663,21 @@ details-disclosure > details {
   background: #000;
   color: #fff;
 }
-@media (max-width: 768px) {
-  .hero-content h2 { font-size: 2rem; }
-  .hero { height: 60vh; }
+
+#shopify-section-template--28337723867520__custom_liquid_gUyLGG {
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+@media (max-width: 749px) {
+  #shopify-section-template--28337723867520__custom_liquid_gUyLGG {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+
+  
 
 
 }
