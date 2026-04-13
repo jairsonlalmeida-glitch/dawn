@@ -933,6 +933,178 @@
     </script>
   </div>
 </product-info>
+<script>
+  (function() {
+    const elementName = 'product-carousel-{{ section.id | replace: "_", "" | downcase }}';
+
+    if (!customElements.get(elementName)) {
+      class ProductCarousel extends HTMLElement {
+        constructor() {
+          super();
+          this.currentIndex = 0;
+          this.autoplayInterval = null;
+          this.startX = 0;
+          this.currentX = 0;
+          this.isDragging = false;
+        }
+
+        connectedCallback() {
+          this.track = this.querySelector('.ai-product-carousel__track-{{ section.id }}');
+          this.slides = this.querySelectorAll('.ai-product-carousel__slide-{{ section.id }}');
+          this.dots = this.querySelectorAll('.ai-product-carousel__dot-{{ section.id }}');
+          this.prevButton = this.querySelector('.ai-product-carousel__nav--prev-{{ section.id }}');
+          this.nextButton = this.querySelector('.ai-product-carousel__nav--next-{{ section.id }}');
+          this.viewport = this.querySelector('.ai-product-carousel__viewport-{{ section.id }}');
+
+          if (!this.track || this.slides.length === 0) return;
+
+          this.totalSlides = this.slides.length;
+          this.autoplay = this.dataset.autoplay === 'true';
+          this.autoplaySpeed = parseInt(this.dataset.autoplaySpeed, 10) || 3500;
+
+          this.setupEventListeners();
+
+          if (this.autoplay) {
+            this.startAutoplay();
+          }
+        }
+
+        setupEventListeners() {
+          if (this.prevButton) {
+            this.prevButton.addEventListener('click', () => this.goToPrevious());
+          }
+
+          if (this.nextButton) {
+            this.nextButton.addEventListener('click', () => this.goToNext());
+          }
+
+          this.dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => this.goToSlide(index));
+          });
+
+          if (this.viewport) {
+            this.viewport.addEventListener('touchstart', (e) => this.handleTouchStart(e), { passive: true });
+            this.viewport.addEventListener('touchmove', (e) => this.handleTouchMove(e), { passive: true });
+            this.viewport.addEventListener('touchend', () => this.handleTouchEnd());
+
+            this.viewport.addEventListener('mousedown', (e) => this.handleMouseDown(e));
+            this.viewport.addEventListener('mousemove', (e) => this.handleMouseMove(e));
+            this.viewport.addEventListener('mouseup', () => this.handleMouseUp());
+            this.viewport.addEventListener('mouseleave', () => this.handleMouseUp());
+          }
+
+          this.addEventListener('mouseenter', () => this.pauseAutoplay());
+          this.addEventListener('mouseleave', () => {
+            if (this.autoplay) this.startAutoplay();
+          });
+        }
+
+        handleTouchStart(e) {
+          this.startX = e.touches[0].clientX;
+          this.currentX = this.startX;
+          this.pauseAutoplay();
+        }
+
+        handleTouchMove(e) {
+          this.currentX = e.touches[0].clientX;
+        }
+
+        handleTouchEnd() {
+          const diff = this.startX - this.currentX;
+          const threshold = 50;
+
+          if (Math.abs(diff) > threshold) {
+            diff > 0 ? this.goToNext() : this.goToPrevious();
+          }
+
+          if (this.autoplay) this.startAutoplay();
+        }
+
+        handleMouseDown(e) {
+          this.isDragging = true;
+          this.startX = e.clientX;
+          this.currentX = e.clientX;
+          if (this.viewport) this.viewport.style.cursor = 'grabbing';
+          this.pauseAutoplay();
+        }
+
+        handleMouseMove(e) {
+          if (!this.isDragging) return;
+          this.currentX = e.clientX;
+        }
+
+        handleMouseUp() {
+          if (!this.isDragging) return;
+
+          const diff = this.startX - this.currentX;
+          const threshold = 50;
+
+          if (Math.abs(diff) > threshold) {
+            diff > 0 ? this.goToNext() : this.goToPrevious();
+          }
+
+          this.isDragging = false;
+          if (this.viewport) this.viewport.style.cursor = 'grab';
+
+          if (this.autoplay) this.startAutoplay();
+        }
+
+        goToSlide(index) {
+          this.currentIndex = index;
+          this.updateCarousel();
+          this.resetAutoplay();
+        }
+
+        goToNext() {
+          this.currentIndex = (this.currentIndex + 1) % this.totalSlides;
+          this.updateCarousel();
+          this.resetAutoplay();
+        }
+
+        goToPrevious() {
+          this.currentIndex = (this.currentIndex - 1 + this.totalSlides) % this.totalSlides;
+          this.updateCarousel();
+          this.resetAutoplay();
+        }
+
+        updateCarousel() {
+          const offset = -this.currentIndex * 100;
+          this.track.style.transform = `translateX(${offset}%)`;
+
+          this.dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === this.currentIndex);
+          });
+        }
+
+        startAutoplay() {
+          this.pauseAutoplay();
+          this.autoplayInterval = setInterval(() => {
+            this.currentIndex = (this.currentIndex + 1) % this.totalSlides;
+            this.updateCarousel();
+          }, this.autoplaySpeed);
+        }
+
+        pauseAutoplay() {
+          if (this.autoplayInterval) {
+            clearInterval(this.autoplayInterval);
+            this.autoplayInterval = null;
+          }
+        }
+
+        resetAutoplay() {
+          if (this.autoplay) this.startAutoplay();
+        }
+
+        disconnectedCallback() {
+          this.pauseAutoplay();
+        }
+      }
+
+      customElements.define(elementName, ProductCarousel);
+    }
+  })();
+</script>
+
 
 {% schema %}
 {
