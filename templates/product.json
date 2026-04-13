@@ -56,7 +56,7 @@
           "type": "custom_liquid",
           "name": "Description",
           "settings": {
-            "custom_liquid": "{% if product.metafields.custom.short_description %}\n<ul style=\"list-style-type: disc; padding-left: 20px; margin: 0;\">\n{% for item in product.metafields.custom.short_description.value %}\n<li style=\"margin: 0; padding: 0; line-height: 1;\">{{ item }}</li>\n{% endfor %}\n</ul>\n{% endif %}"
+            "custom_liquid": "{% if product.metafields.custom.short_description %}\n  <style>\n    .short-description-list {\n      list-style: none;\n      padding-left: 0;\n      margin: 0;\n    }\n    .short-description-list li {\n      margin-bottom: 8px;\n      padding-left: 20px;\n      position: relative;\n    }\n    .short-description-list li:before {\n      content: '•';\n      position: absolute;\n      left: 0;\n      font-weight: bold;\n    }\n    .short-description-list li:last-child {\n      margin-bottom: 0;\n    }\n  </style>\n  <ul class=\"short-description-list\">\n    {% assign items = product.metafields.custom.short_description | split: '\\n' %}\n    {% for item in items %}\n      {% if item != blank %}\n        <li>{{ item | strip }}</li>\n      {% endif %}\n    {% endfor %}\n  </ul>\n{% endif %}"
           }
         }
       },
