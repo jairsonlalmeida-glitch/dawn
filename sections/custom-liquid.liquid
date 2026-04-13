@@ -1,68 +1,104 @@
-{%- style -%}
-  .section-{{ section.id }}-padding {
-    padding-top: calc({{ section.settings.padding_top }}px * 0.75);
-    padding-bottom: calc({{ section.settings.padding_bottom }}px  * 0.75);
-  }
+<section class="hero">
+  {% if section.settings.video_url != blank %}
+    <video autoplay muted loop playsinline class="hero-video">
+      <source src="{{ section.settings.video_url }}" type="video/mp4">
+      {% if section.settings.hero_image != blank %}
+        <img src="{{ section.settings.hero_image | img_url: '1920x' }}" alt="{{ section.settings.heading }}">
+      {% endif %}
+    </video>
+  {% elsif section.settings.hero_image != blank %}
+    <img src="{{ section.settings.hero_image | img_url: '1920x' }}" alt="{{ section.settings.heading }}" class="hero-video">
+  {% else %}
+    <div class="hero-video" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);"></div>
+  {% endif %}
 
-  @media screen and (min-width: 750px) {
-    .section-{{ section.id }}-padding {
-      padding-top: {{ section.settings.padding_top }}px;
-      padding-bottom: {{ section.settings.padding_bottom }}px;
-    }
-  }
-{%- endstyle -%}
-<div class="color-{{ section.settings.color_scheme }} gradient">
-  <div class="section-{{ section.id }}-padding">
-    {{ section.settings.custom_liquid }}
+  <div class="hero-content">
+    {% if section.settings.heading != blank %}
+      <h2>{{ section.settings.heading }}</h2>
+    {% endif %}
+    {% if section.settings.subheading != blank %}
+      <p>{{ section.settings.subheading }}</p>
+    {% endif %}
+    <div class="cta-buttons">
+      {% if section.settings.cta_primary_label != blank %}
+        <a href="{{ section.settings.cta_primary_url }}" class="btn primary">{{ section.settings.cta_primary_label }}</a>
+      {% endif %}
+      {% if section.settings.cta_secondary_label != blank %}
+        <a href="{{ section.settings.cta_secondary_url }}" class="btn secondary">{{ section.settings.cta_secondary_label }}</a>
+      {% endif %}
+    </div>
   </div>
-</div>
+</section>
 
 {% schema %}
 {
-  "name": "t:sections.custom-liquid.name",
-  "tag": "section",
-  "class": "section",
+  "name": "Home Hero",
   "settings": [
     {
-      "type": "liquid",
-      "id": "custom_liquid",
-      "label": "t:sections.custom-liquid.settings.custom_liquid.label",
-      "info": "t:sections.custom-liquid.settings.custom_liquid.info"
+      "type": "header",
+      "content": "Video & Image"
     },
     {
-      "type": "color_scheme",
-      "id": "color_scheme",
-      "label": "t:sections.all.colors.label",
-      "default": "scheme-1"
+      "type": "text",
+      "id": "video_url",
+      "label": "Video URL (mp4)",
+      "info": "Upload your video to Files and paste the URL here."
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Fallback / Hero image"
     },
     {
       "type": "header",
-      "content": "t:sections.all.padding.section_padding_heading"
+      "content": "Content"
     },
     {
-      "type": "range",
-      "id": "padding_top",
-      "min": 0,
-      "max": 100,
-      "step": 4,
-      "unit": "px",
-      "label": "t:sections.all.padding.padding_top",
-      "default": 40
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Own the Summer"
     },
     {
-      "type": "range",
-      "id": "padding_bottom",
-      "min": 0,
-      "max": 100,
-      "step": 4,
-      "unit": "px",
-      "label": "t:sections.all.padding.padding_bottom",
-      "default": 52
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Premium swimwear inspired by Cabo Verde confidence."
+    },
+    {
+      "type": "header",
+      "content": "Primary CTA"
+    },
+    {
+      "type": "text",
+      "id": "cta_primary_label",
+      "label": "Primary button label",
+      "default": "Shop New Drop"
+    },
+    {
+      "type": "url",
+      "id": "cta_primary_url",
+      "label": "Primary button URL"
+    },
+    {
+      "type": "header",
+      "content": "Secondary CTA"
+    },
+    {
+      "type": "text",
+      "id": "cta_secondary_label",
+      "label": "Secondary button label",
+      "default": "Explore Best Sellers"
+    },
+    {
+      "type": "url",
+      "id": "cta_secondary_url",
+      "label": "Secondary button URL"
     }
   ],
   "presets": [
     {
-      "name": "t:sections.custom-liquid.presets.name"
+      "name": "Home Hero"
     }
   ]
 }
