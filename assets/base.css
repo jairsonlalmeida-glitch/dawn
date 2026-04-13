@@ -3595,7 +3595,8 @@ details-disclosure > details {
     transform: translateX(100%) scaleX(0);
   }
   
-  .hero {
+ }
+ .hero {
   position: relative;
   height: 100vh;
   overflow: hidden;
@@ -3664,5 +3665,7 @@ details-disclosure > details {
 @media (max-width: 768px) {
   .hero-content h2 { font-size: 2rem; }
   .hero { height: 60vh; }
+
+
 }
-}
+
