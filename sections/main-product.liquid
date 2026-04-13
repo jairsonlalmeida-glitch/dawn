@@ -1120,31 +1120,149 @@
       "name": "t:sections.main-product.blocks.text.name",
       "settings": [
         {
-          "type": "inline_richtext",
-          "id": "text",
-          "default": "t:sections.main-product.blocks.text.settings.text.default",
-          "label": "t:sections.main-product.blocks.text.settings.text.label"
-        },
-        {
-          "type": "select",
-          "id": "text_style",
-          "options": [
-            {
-              "value": "body",
-              "label": "t:sections.main-product.blocks.text.settings.text_style.options__1.label"
-            },
-            {
-              "value": "subtitle",
-              "label": "t:sections.main-product.blocks.text.settings.text_style.options__2.label"
-            },
-            {
-              "value": "uppercase",
-              "label": "t:sections.main-product.blocks.text.settings.text_style.options__3.label"
-            }
-          ],
-          "default": "body",
-          "label": "t:sections.main-product.blocks.text.settings.text_style.label"
-        }
+  "type": "header",
+  "content": "Product carousel"
+},
+{
+  "type": "checkbox",
+  "id": "carousel_autoplay",
+  "label": "Enable carousel autoplay",
+  "default": true
+},
+{
+  "type": "range",
+  "id": "carousel_autoplay_speed",
+  "min": 2000,
+  "max": 8000,
+  "step": 500,
+  "unit": "ms",
+  "label": "Autoplay speed",
+  "default": 3500
+},
+{
+  "type": "range",
+  "id": "carousel_transition_speed",
+  "min": 200,
+  "max": 1000,
+  "step": 100,
+  "unit": "ms",
+  "label": "Transition speed",
+  "default": 500
+},
+{
+  "type": "select",
+  "id": "carousel_aspect_ratio",
+  "label": "Carousel aspect ratio",
+  "options": [
+    { "value": "1 / 1", "label": "Square (1:1)" },
+    { "value": "4 / 3", "label": "Landscape (4:3)" },
+    { "value": "3 / 4", "label": "Portrait (3:4)" },
+    { "value": "16 / 9", "label": "Widescreen (16:9)" },
+    { "value": "2 / 3", "label": "Portrait (2:3)" }
+  ],
+  "default": "4 / 3"
+},
+{
+  "type": "color",
+  "id": "carousel_background_color",
+  "label": "Carousel background color",
+  "default": "#ffffff"
+},
+{
+  "type": "checkbox",
+  "id": "carousel_show_arrows",
+  "label": "Show carousel arrows",
+  "default": true
+},
+{
+  "type": "range",
+  "id": "carousel_arrow_size",
+  "min": 30,
+  "max": 60,
+  "step": 5,
+  "unit": "px",
+  "label": "Arrow size",
+  "default": 45
+},
+{
+  "type": "range",
+  "id": "carousel_arrow_offset",
+  "min": 10,
+  "max": 50,
+  "step": 5,
+  "unit": "px",
+  "label": "Arrow offset",
+  "default": 20
+},
+{
+  "type": "range",
+  "id": "carousel_arrow_opacity",
+  "min": 0,
+  "max": 1,
+  "step": 0.1,
+  "label": "Arrow opacity",
+  "default": 0.7
+},
+{
+  "type": "color",
+  "id": "carousel_arrow_background",
+  "label": "Arrow background color",
+  "default": "#ffffff"
+},
+{
+  "type": "color",
+  "id": "carousel_arrow_color",
+  "label": "Arrow color",
+  "default": "#121212"
+},
+{
+  "type": "checkbox",
+  "id": "carousel_show_dots",
+  "label": "Show carousel dots",
+  "default": true
+},
+{
+  "type": "range",
+  "id": "carousel_dot_size",
+  "min": 6,
+  "max": 16,
+  "step": 2,
+  "unit": "px",
+  "label": "Dot size",
+  "default": 10
+},
+{
+  "type": "range",
+  "id": "carousel_dots_spacing",
+  "min": 4,
+  "max": 16,
+  "step": 2,
+  "unit": "px",
+  "label": "Dots spacing",
+  "default": 8
+},
+{
+  "type": "range",
+  "id": "carousel_dots_offset",
+  "min": 10,
+  "max": 50,
+  "step": 5,
+  "unit": "px",
+  "label": "Dots offset from bottom",
+  "default": 20
+},
+{
+  "type": "color",
+  "id": "carousel_dot_active_color",
+  "label": "Active dot color",
+  "default": "#121212"
+},
+{
+  "type": "color",
+  "id": "carousel_dot_inactive_color",
+  "label": "Inactive dot color",
+  "default": "#d1d1d1"
+}
       ]
     },
     {
