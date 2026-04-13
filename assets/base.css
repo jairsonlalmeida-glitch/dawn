@@ -3682,14 +3682,9 @@ details-disclosure > details {
 
 }
 
-#shopify-section-template--28337723867520__featured_collection .collection__title.title-wrapper {
-  text-align: left !important;
-  padding-left: 0 !important;
-}
-
-#shopify-section-template--28337723867520__featured_collection .title.inline-richtext {
+#shopify-section-template--28337723867520__featured_collection .collection__title.title-wrapper,
+#shopify-section-template--28337723867520__featured_collection .collection__title.title-wrapper h2 {
   text-align: left !important;
 }
-
 
  
