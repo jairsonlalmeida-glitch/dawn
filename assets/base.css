@@ -3594,8 +3594,9 @@ details-disclosure > details {
   100% {
     transform: translateX(100%) scaleX(0);
   }
-  
+ 
  }
+
  .hero {
   position: relative;
   height: 100vh;
@@ -3669,3 +3670,4 @@ details-disclosure > details {
 
 }
 
+ 
