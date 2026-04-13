@@ -52,13 +52,22 @@
             "show_gift_card_recipient": true
           }
         },
-        "collapsible-row-0": {
-          "type": "collapsible_tab",
+        "description_nfmpgx": {
+          "type": "description",
+          "settings": {}
+        },
+        "text_g6h3BC": {
+          "type": "text",
           "settings": {
-            "heading": "Materials",
-            "icon": "leather",
-            "content": "",
-            "page": ""
+            "text": "Text block",
+            "text_style": "body"
+          }
+        },
+        "text_XRpw4c": {
+          "type": "text",
+          "settings": {
+            "text": "Text block",
+            "text_style": "body"
           }
         },
         "collapsible-row-1": {
@@ -103,7 +112,9 @@
         "variant_picker",
         "quantity_selector",
         "buy_buttons",
-        "collapsible-row-0",
+        "description_nfmpgx",
+        "text_g6h3BC",
+        "text_XRpw4c",
         "collapsible-row-1",
         "collapsible-row-2",
         "collapsible-row-3",
@@ -112,7 +123,7 @@
       "settings": {
         "enable_sticky_info": true,
         "color_scheme": "",
-        "media_size": "large",
+        "media_size": "medium",
         "constrain_to_viewport": true,
         "media_fit": "contain",
         "gallery_layout": "stacked",
