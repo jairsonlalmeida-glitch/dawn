@@ -1,3 +1,10 @@
+<style>
+.custom-hero-heading {
+  color: #ffffff;
+  font-size: 48px;
+}
+</style>
+
 <section class="hero">
   {% if section.settings.video_url != blank %}
     <video autoplay muted loop playsinline class="hero-video">
@@ -14,7 +21,7 @@
 
   <div class="hero-content">
     {% if section.settings.heading != blank %}
-      <h2>{{ section.settings.heading }}</h2>
+      <h2 class="custom-hero-heading">{{ section.settings.heading }}</h2>
     {% endif %}
     {% if section.settings.subheading != blank %}
       <p>{{ section.settings.subheading }}</p>
@@ -58,6 +65,7 @@
       "id": "heading",
       "label": "Heading",
       "default": "Own the Summer"
+     
     },
     {
       "type": "text",
