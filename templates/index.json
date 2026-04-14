@@ -17,9 +17,9 @@
         "heading": "Be Bold, Be Powerful  & Be You",
         "subheading": "Premium swimwear inspired by Cabo Verde confidence.",
         "cta_primary_label": "Shop New Drop",
-        "cta_primary_url": "",
-        "cta_secondary_label": "Explore Best Sellerhttps://kvala.co/collections/alls",
-        "cta_secondary_url": ""
+        "cta_primary_url": "shopify://pages/coming-soon",
+        "cta_secondary_label": "Explore Best",
+        "cta_secondary_url": "shopify://collections"
       }
     },
     "rich_text": {
