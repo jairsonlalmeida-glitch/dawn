@@ -136,6 +136,13 @@
       }
     },
     "content_for_index": [],
+    "blocks": {
+      "6889761305161619242": {
+        "type": "shopify://apps/zb-exit-intent-pop-up-window/blocks/zotabox_embed/931156d7-6f52-452c-b65a-2311e860fb3c",
+        "disabled": false,
+        "settings": {}
+      }
+    },
     "color_schemes": {
       "scheme-1": {
         "settings": {
