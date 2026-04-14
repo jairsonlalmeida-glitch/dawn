@@ -52,6 +52,7 @@
       overflow: hidden;
       aspect-ratio: {{ section.settings.carousel_aspect_ratio }};
       cursor: grab;
+      touch-action: pan-y;
     }
 
     .ai-product-carousel__track-{{ section.id }} {
@@ -907,10 +908,12 @@
       </modal-dialog>
     {%- endfor -%}
 
+    {% comment %}
     {%- if product.media.size > 0 -%}
       <script src="{{ 'product-modal.js' | asset_url }}" defer="defer"></script>
       <script src="{{ 'media-gallery.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
+    {% endcomment %}
 
     {%- if first_3d_model -%}
       <script type="application/json" id="ProductJSON-{{ product.id }}">
