@@ -146,9 +146,9 @@
         "type": "shopify://apps/k1-pre-order/blocks/embed/778ad1ab-9372-4944-b079-5ae71fc097ea",
         "disabled": false,
         "settings": {
-          "preview_badge": false,
-          "preview_button": false,
-          "preview_message": false
+          "preview_badge": true,
+          "preview_button": true,
+          "preview_message": true
         }
       }
     },
