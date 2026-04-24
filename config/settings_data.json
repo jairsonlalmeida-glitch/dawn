@@ -142,10 +142,14 @@
         "disabled": false,
         "settings": {}
       },
-      "11349500561483629931": {
-        "type": "shopify://apps/notify-back-in-stock-preorder/blocks/app-embed/b399b727-6c85-44fc-9e21-63114bd72054",
+      "7200661302844870524": {
+        "type": "shopify://apps/k1-pre-order/blocks/embed/778ad1ab-9372-4944-b079-5ae71fc097ea",
         "disabled": false,
-        "settings": {}
+        "settings": {
+          "preview_badge": false,
+          "preview_button": false,
+          "preview_message": false
+        }
       }
     },
     "color_schemes": {
