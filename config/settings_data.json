@@ -141,6 +141,11 @@
         "type": "shopify://apps/zb-exit-intent-pop-up-window/blocks/zotabox_embed/931156d7-6f52-452c-b65a-2311e860fb3c",
         "disabled": false,
         "settings": {}
+      },
+      "11349500561483629931": {
+        "type": "shopify://apps/notify-back-in-stock-preorder/blocks/app-embed/b399b727-6c85-44fc-9e21-63114bd72054",
+        "disabled": false,
+        "settings": {}
       }
     },
     "color_schemes": {
