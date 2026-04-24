@@ -148,7 +148,7 @@
         "settings": {
           "preview_badge": true,
           "preview_button": true,
-          "preview_message": true
+          "preview_message": false
         }
       }
     },
